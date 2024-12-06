@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       <App />
     ),
   },
+  
   {
     path: "/drivers/:name/:id", // Ruta con parámetro dinámico :id
     element: <Travels />,
