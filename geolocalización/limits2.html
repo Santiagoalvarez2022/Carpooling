@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosario Map with Boundaries</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuTDAZIXhp6lfMyK7gwoTtsawmLjKx04s&libraries=drawing,geometry" async defer></script>
+    <style>
+        #map { height: 500px; width: 500px; }
+    </style>
+</head>
+<body>
+
+<h1>Interactive Map of Rosario with Boundaries</h1>
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -32.9468, lng: -60.6393 }, // Rosario, Argentina
+            zoom: 12
+        });
+
+        // Define el polígono
+        const polygonPath = [
+            { lat: -32.9330, lng: -60.6504 }, // Punto 1
+            { lat: -32.9402, lng: -60.6360 }, // Punto 2
+            { lat: -32.9600, lng: -60.6218 }, // Punto 3
+            { lat: -32.9498, lng: -60.6817 }, // Punto 4
+            { lat: -32.9175, lng: -60.6734 }  // Punto 5
+        ];
+
+        const polygon = new google.maps.Polygon({
+            paths: polygonPath,
+            strokeColor: "blue",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.2
+        });
+
+        polygon.setMap(map);
+        // Añade el marcador
+        const markerPosition = { lat: -32.96, lng: -60.71 };
+        const marker = new google.maps.Marker({
+            position: markerPosition,
+            map: map,
+            title: "My Location"
+        });
+
+        // Verifica si el marcador está dentro del polígono
+        const point = new google.maps.LatLng(markerPosition.lat, markerPosition.lng);
+        const isInside = google.maps.geometry.poly.containsLocation(point, polygon);
+
+        if (isInside) {
+            console.log("El marcador está dentro del polígono.");
+        } else {
+            console.log("El marcador está fuera del polígono.");
+        }
+    }
+
+    // Llama a la función initMap cuando se carga la página
+    window.addEventListener("load", initMap);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Maps for Pergamino and Rosario</title>
+    <script src="scripts/geolocation.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuTDAZIXhp6lfMyK7gwoTtsawmLjKx04s&libraries=places" loading="async" defer></script>
+    <link rel="stylesheet" href="styles/geolocation.css">
+</head>
+<body>
+    <h1>Enter Trip Details</h1>
+    <form id="address-form">
+        <label for="origin">Origin:</label>
+        <input type="text" id="origin" placeholder="Enter your origin" required>
+        <br>
+        <button type="button" id="verify-origin">Verify Origin</button>
+
+        <div id="map-pergamino"></div>
+        <div class="radio-buttons" id="origin-radio-buttons" style="display: none;">
+            <p>Is the address correct?</p>
+            <label><input type="radio" name="origin-validation" value="true"> Yes, it's the correct address</label>
+            <label><input type="radio" name="origin-validation" value="false"> No, I need to adjust it</label>
+        </div>
+
+        <br><br>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Enter your destination" required>
+        <br>
+        <button type="button" id="verify-destination">Verify Destination</button>
+
+        <div id="map-rosario"></div>
+        <div class="radio-buttons" id="destination-radio-buttons" style="display: none;">
+            <p>Is the address correct?</p>
+            <label><input type="radio" name="destination-validation" value="true"> Yes, it's the correct address</label>
+            <label><input type="radio" name="destination-validation" value="false"> No, I need to adjust it</label>
+        </div>
+
+        <br><br>
+        <button type="submit" id="submit" disabled>Submit</button>
+
+        <br><br><br><br><br><br><br><br><br><br>
+
+    </form>
+    <div id="output"></div>
+</body>
+</html>
