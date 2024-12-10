@@ -1,0 +1,10 @@
+#map-pergamino, #map-rosario, #map {
+    display: none;
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+.radio-buttons {
+    margin-top: 10px;
+}
