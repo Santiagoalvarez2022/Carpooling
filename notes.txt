@@ -1,0 +1,11 @@
+── /config     # Configuración (Sequelize, .env)
+│   │   ├── /controllers # Controladores
+│   │   ├── /middlewares # Middlewares personalizados
+│   │   ├── /models     # Modelos (Sequelize)
+│   │   ├── /routes     # Rutas de la API
+│   │   ├── /services   # Lógica de negocio (opcional)
+│   │   ├── /migrations # Migraciones
+│   │   ├── /seeders    # Seeders
+│   │   ├── app.js      # Configuración de Express
+│   │   └── server.js   # Entrada principal
+│   └── package.json    
