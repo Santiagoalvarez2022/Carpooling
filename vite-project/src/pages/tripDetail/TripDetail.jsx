@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function TripDetail() {
+  useEffect(() => {
+    // Inicializar el mapa
+    // const map = new window.google.maps.Map(document.getElementById("map-pergamino"), {
+    //   center: { lat: -34.6075682, lng: -58.4370894 }, // Coordenadas de ejemplo
+    //   zoom: 12,
+    // });
+  }, []);
+ 
+
   return (
     <div className="min-h-screen bg-blue-600 flex items-center justify-center">
+      
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-[90%] max-w-sm sm:max-w-md md:max-w-[40vw]">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -43,6 +53,7 @@ export default function TripDetail() {
               <i className="fas fa-map-marker-alt"></i>
             </span>
           </div>
+        
 
           {/* Datos del pasajero */}
           <div className="bg-white p-4 rounded-lg shadow-sm">

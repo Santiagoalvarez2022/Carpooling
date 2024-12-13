@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         bgBlue: "#004ad0", // Define tu color personalizado
-        bgBlueDark :'#004aad'
+        bgBlueDark :'#004aad',
+        textSucces : '#0ae159'
       },
       borderRadius: {
         'custom-1-5em': '1.5em',

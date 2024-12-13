@@ -1,41 +1,18 @@
-const { DataTypes } = require('sequelize');
+const {driver, trip} = require('../../config/database');
 
-module.exports = (sequelize) => {
-  const Trips = sequelize.define('Trips', {
-    tripId: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-    },
-    departureLocation: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    destinationLocation: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    tripDate: {
-      type: DataTypes.STRING, // Mejor usar `DataTypes.DATEONLY` si es posible.
-      allowNull: false,
-    },
-    departureTime: {
-      type: DataTypes.STRING, // Mejor usar `DataTypes.TIME` si es posible.
-      allowNull: false,
-    },
-    estimatedArrivalTime: {
-      type: DataTypes.STRING, // Mejor usar `DataTypes.TIME` si es posible.
-      allowNull: false,
-    },
-    availability: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    totalCapacity: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  });
 
-  return Trips;
-};
+const CreateTrip = async(idDriver,form) =>{
+  if (idDriver.trim() === '') throw ('ID deconductor es undefined');
+  /*
+    - busco a usario conductor
+    - añado viajes al usuario
+  */
+
+  const findDriver = await driver.findByPk(idDriver);
+  
+
+}
+
+module.exports = {
+  CreateTrip
+}

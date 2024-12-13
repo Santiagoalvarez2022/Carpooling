@@ -1,0 +1,11 @@
+.errorContainers{
+    text-align: start;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+    font-weight: 500;
+    width: 90%;
+    background: rgba(255, 0, 0, 0.506);
+    padding: 1em;
+    border-radius: 1em;
+    color: #fff;
+} 

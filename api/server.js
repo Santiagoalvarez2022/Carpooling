@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 const express = require('express')
+const cors = require('cors');
 const {connectionToDatabase,sequelize} = require('./src/config/database.js')
+const mainRouter = require('./src/routes')
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 //instancio el servidor
@@ -18,7 +20,14 @@ sequelize
 )
 .catch((error) => console.error("Error:", error));
 
-console.log(sequelize);
+console.log(sequelize.models);
+server.use(cors({
+    origin: 'http://localhost:5173',  // Reemplaza con el origen de tu cliente
+    credentials: true  // Permite el envío de credenciales como cookies
+  }));
+  
+server.use('/api', mainRouter);
+
 
 // Routing
 server.listen(PORT,()=>{
